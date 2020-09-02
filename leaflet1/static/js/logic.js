@@ -91,8 +91,8 @@ d3.json(url, function(data) {
   legend.onAdd = function (myMap) {
   
       var div = L.DomUtil.create('div', 'info legend'),
-          grades = [1, 2, 3, 4, 5],
-          labels = [];
+          grades = [0,1, 2, 3, 4, 5],
+          colors = ["black", "purple", "green", "orange", "red", "yellow"];
   
       // loop through our density intervals and generate a label with a colored square for each interval
       for (var i = 0; i < grades.length; i++) {
