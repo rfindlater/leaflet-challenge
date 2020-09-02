@@ -23,7 +23,7 @@ var url = baseURL;
 function chooseColor(magnitude) {
     switch (true) {
     case magnitude >= 5:
-      return "yellow";
+      return "purple";
     case magnitude >= 4:
       return "red";
     case magnitude >= 3:
@@ -31,7 +31,7 @@ function chooseColor(magnitude) {
     case magnitude >= 2:
       return "green";
     case magnitude >= 1:
-      return "purple";
+      return "yellow";
     default:
       return "black";
     }
@@ -42,11 +42,11 @@ d3.json(url, function(data) {
 
  // Creating a geoJSON layer with the retrieved data
   L.geoJson(data, {
-    // Style each feature (in this case a neighborhood)
+    // Style each feature (in this case a earthquake)
     style: function(feature) {
       return {
         color: "white",
-        // Call the chooseColor function to decide which color to color our neighborhood (color based on borough)
+        // Call the chooseColor function to decide which color to color our earthquake
         fillColor: chooseColor(feature.properties.mag),
         fillOpacity: 0.5,
         weight: 1.5,
@@ -92,7 +92,7 @@ d3.json(url, function(data) {
   
       var div = L.DomUtil.create('div', 'info legend'),
           grades = [0,1, 2, 3, 4, 5],
-          colors = ["black", "purple", "green", "orange", "red", "yellow"];
+          colors = ["black", "yellow", "green", "orange", "red", "purple"];
   
       // loop through our density intervals and generate a label with a colored square for each interval
       for (var i = 0; i < grades.length; i++) {
